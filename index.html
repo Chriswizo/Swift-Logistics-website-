@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Swift Logistics Services offers delivery, shipping and logistics solutions.">
+  <title>Swift Logistics Services | Delivery & Logistics</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #172b45;
+      line-height: 1.6;
+      background: #fff;
+    }
+    header {
+      background: #102744;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    header strong { font-size: 19px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 70px 7%;
+      background: #edf4fa;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.15;
+      margin: 10px 0;
+    }
+    .hero p { max-width: 600px; margin: 18px auto; }
+    .button {
+      display: inline-block;
+      background: #1479d0;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    section { padding: 42px 7%; }
+    h2 { text-align: center; }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .service {
+      border: 1px solid #dce5ee;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .tracking {
+      background: #f3f7fb;
+      text-align: center;
+    }
+    input {
+      width: min(100%, 420px);
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #aebdcb;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    #result { margin-top: 14px; }
+    .contact { text-align: center; }
+    footer {
+      background: #102744;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+    footer a { color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Swift Logistics Services</strong>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#tracking">Tracking</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p>DEPENDABLE DELIVERY. PROFESSIONAL SERVICE.</p>
+      <h1>Moving Your World Forward</h1>
+      <p>
+        Logistics and delivery solutions designed to keep
+        your shipments moving and your business connected.
+      </p>
+      <a class="button" href="#services">Explore Our Services</a>
+    </div>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services">
+        <article class="service">
+          <h3>📦 Package Delivery</h3>
+          <p>Delivery solutions for packages and business shipments.</p>
+        </article>
+        <article class="service">
+          <h3>🚚 Freight & Logistics</h3>
+          <p>Transport coordination tailored to your shipment needs.</p>
+        </article>
+        <article class="service">
+          <h3>🌎 Shipping Support</h3>
+          <p>Assistance with delivery arrangements and shipment enquiries.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="tracking" id="tracking">
+      <h2>Track Your Shipment</h2>
+      <p>Enter your tracking reference to check your shipment.</p>
+      <form id="trackForm">
+        <input id="trackingNumber"
+          type="text" placeholder="Enter tracking number"
+          aria-label="Tracking number" required>
+        <br>
+        <button class="button" type="submit">Check Shipment</button>
+      </form>
+      <p id="result" role="status">
+        Tracking service setup is required for live updates.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Our Team</h2>
+      <p>Have a delivery question? Get in touch with us.</p>
+      <p>Email: YOUR-REAL-BUSINESS-EMAIL</p>
+      <p>Phone: YOUR-REAL-BUSINESS-PHONE</p>
+      <a class="button"
+        href="mailto:YOUR-REAL-BUSINESS-EMAIL">
+        Email Us
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span>
+      Swift Logistics Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("trackForm").addEventListener(
+      "submit", function(event) {
+        event.preventDefault();
+        const number = document.getElementById(
+          "trackingNumber"
+        ).value.trim();
+
+        document.getElementById("result").textContent =
+          "Tracking reference " + number +
+          " received. Live shipment lookup is not yet connected. " +
+          "Please contact our team for verified updates.";
+      }
+    );
+  </script>
+</body>
+</html>
